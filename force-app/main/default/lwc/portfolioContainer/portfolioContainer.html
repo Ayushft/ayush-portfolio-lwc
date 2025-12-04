@@ -1,0 +1,139 @@
+<template>
+    <template lwc:if={isLoading}>
+        <div style="background-color: var(--bg-1); width:100%; height:100%;align-items:center; text-align:center;">
+            <div class="loader" style="align-items:center; text-align:center;">    
+            </div>
+        </div>
+    </template>
+    <template lwc:else>
+    <!-- HERO -->
+    <section class="hero-banner">
+        <div class="hero">
+            <div class="hero-gradient"></div>
+
+            <!-- <img src={profilePicture} alt="Profile" class="profile-pic" /> -->
+
+            <h1 class="name">Hi, I am Ayush Kothari</h1>
+            <p class="title">Software Engineer - Salesforce</p>
+
+            <div class="social-links">
+                <a href={email} class="social-icon" title="Mail" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/256/ffffff/new-post.png" alt="Mail" />
+                </a>
+                <a href={linkedinUrl} class="social-icon" title="LinkedIn" target="_blank">
+                    <img src="https://img.icons8.com/ios-filled/256/ffffff/linkedin.png" alt="LinkedIn" />
+                </a>
+                <a href={githubUrl} class="social-icon" title="GitHub" target="_blank">
+                    <img src="https://img.icons8.com/ios-glyphs/256/ffffff/github.png" alt="GitHub" />
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="projects-section">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="exp-grid">
+            <template for:each={experience} for:item="work">
+                <div class="project-card" key={work.id}>
+                    <div class="work-heading">
+                        <h3>{work.company}</h3>
+                        <p></p>
+                    </div>
+                    <h4>{work.role}</h4>
+                    <p>{work.summary}</p>
+                </div>
+            </template>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects-section">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <h3>Auction Platform</h3>
+                <p>Generic auction engine built using Apex + Design Patterns.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Custom Approval Engine</h3>
+                <p>A rule-based approval system that breaks past Salesforce limits.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Portfolio LWC</h3>
+                <p>Personal portfolio UI hosted natively on Salesforce.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills-section">
+        <h2 class="section-title">Skills</h2>
+
+        <div class="skills-sections-layout">
+            <!-- <button class="carousel-btn" data-prev>&#10094;</button> -->
+
+            <!-- <div class="carousel-track" data-carousel>
+                <template for:each={skills} for:item="skill">
+                    <div key={skill} class="carousel-item">
+                        <span class="tag">{skill}</span>
+                    </div>
+                </template>
+
+            </div> -->
+            <div class="cluster" style="background: var(--bg-1); padding: 1rem">
+                <h3 class="" style="flex:1;">SFDC</h3>
+                <template for:each={sfdcSkills} for:item="skill">
+                    <div key={skill} class="box" style="padding: 0.5rem 1rem">{skill}</div>
+                </template>
+            </div>
+
+            <div class="cluster" style="background: var(--bg-1); padding: 1rem">
+                <h3 class="" style="flex:1;">Tools</h3>
+                <template for:each={toolsSkills} for:item="skill">
+                    <div key={skill} class="box" style="padding: 0.5rem 1rem">{skill}</div>
+                </template>
+            </div>
+
+            <div class="cluster" style="background: var(--bg-1); padding: 1rem">
+                <h3 class="">Programming</h3>
+                <template for:each={programmingSkills} for:item="skill">
+                    <div key={skill} class="box" style="padding: 0.5rem 1rem;flex-grow:0;">{skill}</div>
+                </template>
+            </div>
+
+            <!-- <div class="flex">
+                <template for:each={skills} for:item="skill">
+                    <div key={skill} class="button">{skill}</div>
+                </template>
+            </div> -->
+
+            <!-- <button class="carousel-btn" data-next>&#10095;</button> -->
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="skills-section">
+        <h2 class="section-title">Certifications</h2>
+
+        <div class="carousel">
+            <button class="carousel-btn" data-prev-cert>&#10094;</button>
+
+            <div class="carousel-track" data-carousel-cert>
+
+                <template for:each={certifications} for:item="cert">
+                    <div key={cert} class="carousel-item">
+                        <span class="tag">{cert}</span>
+                    </div>
+                </template>
+            </div>
+
+            <button class="carousel-btn" data-next-cert>&#10095;</button>
+        </div>
+    </section>
+    </template>
+</template>
